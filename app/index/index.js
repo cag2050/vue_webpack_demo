@@ -5,7 +5,7 @@ import Vue from 'vue';
 import FavList from './components/FavList.vue';
 
 var exampleData = {
-    name: 'Vue.js!'
+    name: 'Learn Vue.js5566!'
 };
 
 new Vue({

@@ -9,7 +9,9 @@ console.log(__dirname);
 console.log(path.resolve(__dirname, '../app/index/index.js'));
 
 module.exports = {
-    entry: path.resolve(__dirname, '../app/index/index.js'),
+    entry: ['./build/dev-client',
+        path.resolve(__dirname, '../app/index/index.js')]
+    ,
     output: {
         path: path.resolve(__dirname, '../output/static'),
         publicPath: 'static/',
