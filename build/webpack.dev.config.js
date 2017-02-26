@@ -13,23 +13,10 @@ module.exports = merge(baseWebpackConfig, {
     output: {
         publicPath: '/'
     },
-    module: {
-        rules: [
-            {
-                test: /\.css$/,
-                loader: ExtractTextPlugin.extract({
-                    fallback: "style-loader",
-                    use: "css-loader"
-                })
-            }
-        ]
-    },
     plugins: [
         new webpack.optimize.OccurrenceOrderPlugin(),
         new webpack.HotModuleReplacementPlugin(),
         new webpack.NoEmitOnErrorsPlugin(),
-
-        new ExtractTextPlugin("css.css"),
 
         new HtmlWebpackPlugin({
             filename: 'app/index/index.html',

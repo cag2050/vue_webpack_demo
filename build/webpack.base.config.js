@@ -3,6 +3,7 @@
  */
 var path = require('path');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
+var ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
     entry: ['./build/dev-client',
@@ -33,10 +34,19 @@ module.exports = {
                     presets: ['es2015']
                 },
                 exclude: /node_modules/
+            },
+            {
+                test: /\.css$/,
+                loader: ExtractTextPlugin.extract({
+                    fallback: "style-loader",
+                    use: "css-loader"
+                })
             }
         ]
     },
     plugins: [
+        // 提取css为单文件
+        new ExtractTextPlugin("[name].[contenthash].css"),
         new HtmlWebpackPlugin({
             filename: '../index.html',
             template: path.resolve(__dirname, '../app/index/index.html'),

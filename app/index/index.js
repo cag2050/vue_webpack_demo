@@ -7,7 +7,7 @@ import FavList from './components/FavList.vue';
 require('./components/css.css');
 
 var exampleData = {
-    msg: 'Learn Vue.js556644444!'
+    msg: 'Learn Vue.js999!'
 };
 
 new Vue({

@@ -10,33 +10,20 @@ var merge = require('webpack-merge');
 var baseWebpackConfig = require('./webpack.base.config');
 
 module.exports = merge(baseWebpackConfig, {
-    module: {
-        rules: [
-            {
-                test: /\.css$/,
-                loader: ExtractTextPlugin.extract({
-                    fallback: "style-loader",
-                    use: "css-loader"
-                })
-            }
-        ]
-    },
+    entry: path.resolve(__dirname, '../app/index/index.js')
+    ,
     plugins: [
         new webpack.DefinePlugin({
             'process.env': {
                 NODE_ENV: 'production'
             }
         }),
-        // 压缩代码
+        // 压缩代码 开启压缩报错，待查原因
         new webpack.optimize.UglifyJsPlugin({
             compress: {
                 warnings: false
             }
         }),
-        new webpack.optimize.OccurrenceOrderPlugin(),
-        // 提取css为单文件
-        new ExtractTextPlugin("css.css"),
-        //new ExtractTextPlugin("[name].[contenthash].css"),
 
         new HtmlWebpackPlugin({
             filename: '../index.html',

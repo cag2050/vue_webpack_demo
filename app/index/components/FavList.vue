@@ -16,6 +16,6 @@
 
 <style>
     #div1 {
-        background:yellow;
+        background:gray;
     }
 </style>
