@@ -44,7 +44,7 @@ npm manifest:
     },
     "scripts": {
       "test": "echo \"Error: no test specified\" && exit 1",
-      "build": "webpack --display-modules --display-chunks --config build/webpack.config.js",
+      "build": "webpack --display-modules --display-chunks --config build/webpack.base.config.js",
       "dev": "node build/dev-server.js"
     },
     "repository": {

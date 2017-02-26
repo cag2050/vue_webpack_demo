@@ -4,10 +4,6 @@
 var path = require('path');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 
-console.log('__dirname =');
-console.log(__dirname);
-console.log(path.resolve(__dirname, '../app/index/index.js'));
-
 module.exports = {
     entry: ['./build/dev-client',
         path.resolve(__dirname, '../app/index/index.js')]
@@ -25,7 +21,7 @@ module.exports = {
         }
     },
     module: {
-        loaders: [
+        rules: [
             {
                 test: /\.vue$/,
                 loader: 'vue-loader'

@@ -4,8 +4,10 @@
 import Vue from 'vue';
 import FavList from './components/FavList.vue';
 
+require('./components/css.css');
+
 var exampleData = {
-    name: 'Learn Vue.js5566!'
+    msg: 'Learn Vue.js556644444!'
 };
 
 new Vue({

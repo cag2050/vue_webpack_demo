@@ -1,24 +1,40 @@
 /**
  * Created by cag on 2017/2/25.
  */
-var HtmlWebpackPlugin = require('html-webpack-plugin');
 var path = require('path');
 var webpack = require('webpack');
+var HtmlWebpackPlugin = require('html-webpack-plugin');
+var ExtractTextPlugin = require('extract-text-webpack-plugin');
+var merge = require('webpack-merge');
 
-var config = require('./webpack.config');
+var baseWebpackConfig = require('./webpack.base.config');
 
-config.output.publicPath = '/';
+module.exports = merge(baseWebpackConfig, {
+    output: {
+        publicPath: '/'
+    },
+    module: {
+        rules: [
+            {
+                test: /\.css$/,
+                loader: ExtractTextPlugin.extract({
+                    fallback: "style-loader",
+                    use: "css-loader"
+                })
+            }
+        ]
+    },
+    plugins: [
+        new webpack.optimize.OccurrenceOrderPlugin(),
+        new webpack.HotModuleReplacementPlugin(),
+        new webpack.NoEmitOnErrorsPlugin(),
 
-config.plugins = [
-    new webpack.optimize.OccurrenceOrderPlugin(),
-    new webpack.HotModuleReplacementPlugin(),
-    new webpack.NoErrorsPlugin(),
+        new ExtractTextPlugin("css.css"),
 
-    new HtmlWebpackPlugin({
-        filename: 'app/index/index.html',
-        template: path.resolve(__dirname, '../app/index/index.html'),
-        inject: true
-    })
-];
-
-module.exports = config;
+        new HtmlWebpackPlugin({
+            filename: 'app/index/index.html',
+            template: path.resolve(__dirname, '../app/index/index.html'),
+            inject: true
+        })
+    ]
+});
