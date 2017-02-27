@@ -1,9 +1,8 @@
-# vue_demo
-vue练习  
+# vue_demo 
 
-webpack和vue.js搭建环境    
+webpack2和vue2搭建环境    
 
-运行：npm run dev，访问[http://localhost:8888/app/index/index.html](http://localhost:8888/app/index/index.html)  ， 修改html模板、vue组件、model-view的js，都可自动刷新。  
+运行：npm run dev，访问[http://localhost:8888/app/index/index.html](http://localhost:8888/app/index/index.html)  ， 修改html模板、vue组件、model-view的js、css文件，都可自动刷新。  
 
 运行：npm run build,构建可以发布到服务器的正式文件。  
 
