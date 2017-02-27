@@ -6,9 +6,7 @@ var HtmlWebpackPlugin = require('html-webpack-plugin');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
-    entry: ['./build/dev-client',
-        path.resolve(__dirname, '../app/index/index.js')]
-    ,
+    entry: [path.resolve(__dirname, '../app/index/index.js')],
     output: {
         path: path.resolve(__dirname, '../output/static'),
         publicPath: 'static/',

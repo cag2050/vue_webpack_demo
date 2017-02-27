@@ -10,8 +10,7 @@ var merge = require('webpack-merge');
 var baseWebpackConfig = require('./webpack.base.config');
 
 module.exports = merge(baseWebpackConfig, {
-    entry: path.resolve(__dirname, '../app/index/index.js')
-    ,
+    //entry: path.resolve(__dirname, '../app/index/index.js'),
     plugins: [
         new webpack.DefinePlugin({
             'process.env': {

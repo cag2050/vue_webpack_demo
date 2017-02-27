@@ -10,6 +10,7 @@ var merge = require('webpack-merge');
 var baseWebpackConfig = require('./webpack.base.config');
 
 module.exports = merge(baseWebpackConfig, {
+    entry: ['./build/dev-client'],
     output: {
         publicPath: '/'
     },
