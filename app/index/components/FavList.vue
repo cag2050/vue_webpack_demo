@@ -4,16 +4,6 @@
     </div>
 </template>
 
-<script>
-    export default {
-        data () {
-            return {
-                msg: 'Hello World!'
-            }
-        }
-    }
-</script>
-
 <style>
     #div1 {
         background:gray;

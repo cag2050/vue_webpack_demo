@@ -18,7 +18,7 @@ module.exports = merge(baseWebpackConfig, {
                 NODE_ENV: 'production'
             }
         }),
-        // 压缩代码 开启压缩报错，待查原因
+        // 压缩代码
         new webpack.optimize.UglifyJsPlugin({
             compress: {
                 warnings: false
