@@ -6,7 +6,7 @@ var webpack = require('webpack');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var merge = require('webpack-merge');
-// 引入基本配置
+
 var baseWebpackConfig = require('./webpack.base.config');
 
 module.exports = merge(baseWebpackConfig, {
@@ -17,7 +17,6 @@ module.exports = merge(baseWebpackConfig, {
                 NODE_ENV: 'production'
             }
         }),
-        // 压缩代码
         new webpack.optimize.UglifyJsPlugin({
             compress: {
                 warnings: false

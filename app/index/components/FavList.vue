@@ -4,6 +4,10 @@
     </div>
 </template>
 
+<script>
+
+</script>
+
 <style>
     #div1 {
         background:gray;

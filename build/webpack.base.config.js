@@ -43,12 +43,6 @@ module.exports = {
         ]
     },
     plugins: [
-        // 提取css为单文件
         new ExtractTextPlugin("[name].[contenthash].css"),
-        new HtmlWebpackPlugin({
-            filename: '../index.html',
-            template: path.resolve(__dirname, '../app/index/index.html'),
-            inject: true
-        })
     ]
 };

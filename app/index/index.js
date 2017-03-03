@@ -6,12 +6,18 @@ import FavList from './components/FavList.vue';
 
 require('./components/css.css');
 
-var exampleData = {
-    msg: 'Learn Vue.js999!'
-};
+
+var Child = {
+    template: '<div>A custom component!</div>'
+}
 
 new Vue({
     el: '#div1',
-    data: exampleData,
-    components: {FavList}
+    data: {
+        msg: 'Learn Vue.js999!'
+    },
+    components: {
+        'child':Child,
+        'favlist':FavList
+    }
 });

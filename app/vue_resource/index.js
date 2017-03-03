@@ -6,7 +6,9 @@ import MovieList from './assets/MovieList';
 
 new Vue({
     el:'#app',
-    data:{},
+    data:{
+        movie:'电影列表'
+    },
     mounted:function () {
         this.nextTick(function () {
             
