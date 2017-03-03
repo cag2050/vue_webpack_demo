@@ -8,8 +8,8 @@ var ExtractTextPlugin = require('extract-text-webpack-plugin');
 module.exports = {
     entry: [path.resolve(__dirname, '../app/index/index.js')],
     output: {
-        path: path.resolve(__dirname, '../output/static'),
-        publicPath: 'static/',
+        path: path.resolve(__dirname, '../output/index/assets'),
+        publicPath: 'assets/',
         filename: '[name].[hash].js',
         chunkFilename: '[id].[chunkhash].js'
     },

@@ -2,9 +2,9 @@
  * Created by cag on 2017/2/24.
  */
 import Vue from 'vue';
-import FavList from './components/FavList.vue';
+import FavList from './assets/FavList.vue';
 
-require('./components/css.css');
+require('./assets/css.css');
 
 
 var Child = {
