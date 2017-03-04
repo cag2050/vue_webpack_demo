@@ -4,14 +4,33 @@
 var path = require('path');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
+var glob = require('glob');
+
+function getEntry(globPath) {
+    var entries = {};
+    glob.sync(globPath).map(function (entry) {
+        var basename, tmp, pathname;
+        basename = path.basename(entry, path.extname(entry));
+        tmp = entry.split('/').splice(-3);
+        // pathname = tmp.splice(1, 1) + '/' + basename+'/assets'; // 正确输出js和html的路径
+        // pathname = tmp.splice(1, 1) + '/assets/index'; // 正确输出js和html的路径
+        // pathname = tmp.splice(1, 1) + '/assets'; // 正确输出js和html的路径
+        pathname = tmp.splice(1, 1); // 正确输出js和html的路径
+        entries[pathname] = entry;
+    });
+    // console.log(entries);
+    return entries;
+
+}
+var entries = getEntry('./app/**/*.js');
 
 module.exports = {
-    entry: [path.resolve(__dirname, '../app/index/index.js')],
+    entry: entries,
     output: {
-        path: path.resolve(__dirname, '../output/index/assets'),
-        publicPath: 'assets/',
+        path: path.resolve(__dirname, '../output'),
+        publicPath: '..',
         filename: '[name].[hash].js',
-        chunkFilename: '[id].[chunkhash].js'
+        chunkFilename: '[name].[chunkhash].js'
     },
     resolve: {
         extensions: ['.js', '.vue'],

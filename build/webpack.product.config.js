@@ -10,11 +10,10 @@ var merge = require('webpack-merge');
 var baseWebpackConfig = require('./webpack.base.config');
 
 module.exports = merge(baseWebpackConfig, {
-    //entry: path.resolve(__dirname, '../app/index/index.js'),
     plugins: [
         new webpack.DefinePlugin({
             'process.env': {
-                NODE_ENV: 'production'
+                NODE_ENV: JSON.stringify('production')
             }
         }),
         new webpack.optimize.UglifyJsPlugin({
@@ -24,9 +23,18 @@ module.exports = merge(baseWebpackConfig, {
         }),
 
         new HtmlWebpackPlugin({
-            filename: '../index.html',
+            filename: '../output/index/index.html',
             template: path.resolve(__dirname, '../app/index/index.html'),
+            chunks: ['index'],
+            inject: true
+        }),
+        new HtmlWebpackPlugin({
+            filename: '../output/vue_resource/index.html',
+            template: path.resolve(__dirname, '../app/vue_resource/index.html'),
+            chunks: ['vue_resource'],
             inject: true
         })
     ]
 });
+console.log('entries =');
+console.log(baseWebpackConfig.entry);
