@@ -26,3 +26,8 @@ module.exports = merge(baseWebpackConfig, {
         })
     ]
 });
+
+console.log('module.exports.entry =')
+console.log(module.exports.entry)
+console.log('entries =');
+console.log(baseWebpackConfig.entry);
